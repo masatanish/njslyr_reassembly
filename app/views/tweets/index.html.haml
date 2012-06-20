@@ -1,23 +1,11 @@
-%h1 Listing tweets
+%h1 tweets
 
-%table
-  %tr
-    %th Tweet
-    %th Text
-    %th Posted at
-    %th
-    %th
-    %th
-
-  - @tweets.each do |tweet|
-    %tr
-      %td= tweet.tweet_id
-      %td= tweet.text
-      %td= tweet.posted_at
-      %td= link_to 'Show', tweet
-      %td= link_to 'Edit', edit_tweet_path(tweet)
-      %td= link_to 'Destroy', tweet, :confirm => 'Are you sure?', :method => :delete
-
+- @tweets.each do |tweet|
+  %div.tweet
+    %div.tweet-body
+      =tweet.text
+    %div.tweet-date
+      = link_to date_format(tweet.posted_at), "http://twitter.com/NJSLYR/#{tweet.tweet_id}"
 %br
 
 = link_to 'New Tweet', new_tweet_path
