@@ -1,4 +1,6 @@
 NjslyrReassembly::Application.routes.draw do
+  resources :tweets
+
   root :to => 'home#index'
 
   match '/auth/:provider/callback', :to => 'sessions#callback'
