@@ -1,4 +1,6 @@
 NjslyrReassembly::Application.routes.draw do
+  root :to => 'home#index'
+
   match '/auth/:provider/callback', :to => 'sessions#callback'
 
   # The priority is based upon order of creation:
