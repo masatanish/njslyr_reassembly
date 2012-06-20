@@ -24,7 +24,7 @@ describe TweetsController do
   # Tweet. As you add validations to Tweet, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    {id:'hoge', text:'body', posted_at: Time.now}
   end
   
   # This should return the minimal set of values that should be in the session
@@ -36,7 +36,7 @@ describe TweetsController do
 
   describe "GET index" do
     it "assigns all tweets as @tweets" do
-      tweet = Tweet.create! valid_attributes
+      tweet = Tweet.create valid_attributes
       get :index, {}, valid_session
       assigns(:tweets).should eq([tweet])
     end
