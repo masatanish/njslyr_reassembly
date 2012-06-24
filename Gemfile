@@ -13,6 +13,8 @@ end
 
 group :test do
   gem 'database_cleaner'
+  gem 'pry-rails'
+  gem 'thin'
 end
 gem 'jquery-rails'
 
