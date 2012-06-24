@@ -1,4 +1,6 @@
 NjslyrReassembly::Application.routes.draw do
+  resources :episodes
+
   resources :tweets
 
   root :to => 'home#index'
