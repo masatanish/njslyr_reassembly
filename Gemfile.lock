@@ -84,6 +84,8 @@ GEM
       moped (~> 1.0.0.rc)
       origin (~> 1.0.0.rc)
       tzinfo (~> 0.3.22)
+    mongoid-tree (0.5.0)
+      mongoid (>= 2.0.0.beta.20)
     moped (1.0.0.rc)
     multi_json (1.0.4)
     multi_xml (0.2.2)
@@ -225,6 +227,7 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   mongoid (>= 2.0.0.beta.19)
+  mongoid-tree
   omniauth (~> 0.2.0)
   pry-rails
   rails (= 3.2.6)

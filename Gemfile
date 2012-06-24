@@ -25,3 +25,4 @@ gem "mongoid", ">= 2.0.0.beta.19"
 gem "omniauth", "~> 0.2.0"
 gem "rspec-rails", ">= 2.0.1", :group => [:development, :test]
 gem "twitter-bootstrap-rails"
+gem 'mongoid-tree', :require => 'mongoid/tree'
