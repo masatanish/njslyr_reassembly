@@ -3,6 +3,7 @@ class EpisodesController < ApplicationController
   # GET /episodes.json
   def index
     @episodes = Episode.all
+    @roots = Episode.roots
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +15,10 @@ class EpisodesController < ApplicationController
   # GET /episodes/1.json
   def show
     @episode = Episode.find(params[:id])
+    unless @episode.tweets.empty?
+      @start = @episode.tweets.first.posted_at
+      @last = @episode.tweets.last.posted_at
+    end
 
     respond_to do |format|
       format.html # show.html.erb

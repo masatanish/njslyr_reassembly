@@ -1,12 +1,41 @@
 %p#notice= notice
 
-%p
-  %b Name:
-  = @episode.name
-%p
-  %b Description:
-  = @episode.description
+%h3
+  trees
+%div 
+  = link_to 'episodes', episodes_path
+  - @episode.ancestors_and_self.each do |ancestor|
+    \/
+    =link_to ancestor.name, episode_path(ancestor)
 
-= link_to 'Edit', edit_episode_path(@episode)
-\|
+- if @episode.leaf?
+  %div.pages
+    - @episode.siblings_and_self.each do |sib|
+      = link_to sib.name, episode_path(sib)
+      = ':' unless sib.at_bottom?
+- unless @episode.children.empty?
+  %h3
+    Episodes
+  %div
+    - @episode.children.each do |child|
+      %li= link_to child.name, episode_path(child)
+
+- unless @episode.tweets.empty?
+  %h3
+    tweets
+  %div
+    = @start
+    \-
+    = @last
+  %div
+    - @episode.tweets.each do |tw|
+      %div{ :style => 'margin:10px;' }
+        = tw.text
+
+- if @episode.leaf?
+  %div.pages
+    - @episode.siblings_and_self.each do |sib|
+      = link_to sib.name, episode_path(sib)
+      = ':' unless sib.at_bottom?
+
 = link_to 'Back', episodes_path

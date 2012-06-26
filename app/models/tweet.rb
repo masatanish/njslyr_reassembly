@@ -6,4 +6,7 @@ class Tweet
   field :tweet_id, type: String
   field :text, type: String
   field :posted_at, type: DateTime
+
+  default_scope order_by([:posted_at, 'DESC'])
+  belongs_to :episode
 end

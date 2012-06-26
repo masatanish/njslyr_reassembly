@@ -1,6 +1,15 @@
 %h1 Listing episodes
 
-%table
+- @roots.each do |episode|
+  %ul
+    %li
+      = link_to episode.name, episode_path(episode)
+      %ul
+        - episode.children.each do |ep|
+          %li= link_to ep.name, episode_path(ep)
+
+
+-#%table
   %tr
     %th Name
     %th Description
