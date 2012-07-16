@@ -29,8 +29,10 @@
     = @last
   %div
     - @episode.tweets.each do |tw|
-      %div{ :style => 'margin:10px;' }
-        = tw.text
+      .box
+        -# temporary
+        = highlight(tw.text, ['サツバツ', 'ナムサン！','イヤーッ！','スゴイ','ゴウランガ！'])
+
 
 - if @episode.leaf?
   %div.pages
